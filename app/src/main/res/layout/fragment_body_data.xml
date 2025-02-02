@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
+    tools:context=".BodyDataFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="30dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/massLayout"
+                style="@style/InputLayoutStyle">
+                <TextView
+                    style="@style/LabelStyle"
+                    android:text="Hmotnosť"
+                    />
+                <EditText
+                    android:id="@+id/weightField"
+                    style="@style/InputStyle"
+                    android:inputType="number"
+                    android:hint="Zadaj hmotnosť"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                style="@style/InputLayoutStyle">
+                <TextView
+                    style="@style/LabelStyle"
+                    android:text="Výška"
+                    />
+                <EditText
+                    android:id="@+id/heightField"
+                    style="@style/InputStyle"
+                    android:inputType="number"
+                    android:hint="Zadaj výšku"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                style="@style/InputLayoutStyle">
+                <TextView
+                    style="@style/LabelStyle"
+                    android:text="Vek"
+                    />
+                <EditText
+                    android:id="@+id/ageField"
+                    style="@style/InputStyle"
+                    android:inputType="number"
+                    android:hint="Zadaj vek"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:text="Pohlavie"
+                    />
+                <RadioGroup
+                    android:id="@+id/genderGroup"
+                    android:layout_weight="1"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton android:id="@+id/radioMan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:text="Muž"/>
+
+                    <RadioButton
+                        android:id="@+id/radioWoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Žena"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </RadioGroup>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dp"
+                android:background="#737272" />
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    style="@style/LabelStyle"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:text="Tvoj cieľ"
+                    />
+                <RadioGroup
+                    android:id="@+id/goalGroup"
+                    android:layout_weight="1"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioButton android:id="@+id/radionGainWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:tag="weight"
+                        android:text="Pribrať"/>
+
+                    <RadioButton android:id="@+id/radioKeepWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:tag="weight"
+                        android:text="Udržať"/>
+
+                    <RadioButton
+                        android:id="@+id/radioLoseWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Schudnúť"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </RadioGroup>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dp"
+                android:background="#737272" />
+
+
+            <Button
+                android:id="@+id/sendButton"
+                style="@style/ButtonStyle"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:text="Odošli hodnoty"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:visibility="invisible"
+                android:id="@+id/bmiCardView"
+                >
+                <LinearLayout
+                    android:id="@+id/bmiCardLayout"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+
+                    android:gravity="center"
+                    android:background="#fcc"
+                    android:padding="20dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#f00"
+                        android:textSize="16sp"
+                        android:text="Tvoje BMI je:"
+                        />
+                    <TextView
+                        android:id="@+id/bmiResult"
+                        android:textColor="#f00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="40sp"
+                        android:paddingVertical="5dp"
+                        android:text="0"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#f00"
+                            android:textSize="16sp"
+                            android:text="To znamená: "/>
+                        <TextView
+                            android:id="@+id/bmiDescription"
+                            android:textColor="#f00"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text=""/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>
