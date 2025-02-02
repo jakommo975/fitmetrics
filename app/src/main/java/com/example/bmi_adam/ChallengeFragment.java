@@ -191,7 +191,7 @@ public class ChallengeFragment extends Fragment {
         Calendar tenAM = Calendar.getInstance();
         Calendar sixPM = Calendar.getInstance();
 
-        tenAM.set(Calendar.HOUR_OF_DAY, 9);
+        tenAM.set(Calendar.HOUR_OF_DAY, 10);
         tenAM.set(Calendar.MINUTE, 0);
         tenAM.set(Calendar.SECOND, 0);
 
@@ -208,7 +208,11 @@ public class ChallengeFragment extends Fragment {
             sixPM.add(Calendar.DATE, 1);
         }
 
+
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, tenAM.getTimeInMillis(), pendingIntent);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, sixPM.getTimeInMillis(), pendingIntent);
+
+        // set notification 10s from now for testing
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
     }
 }
