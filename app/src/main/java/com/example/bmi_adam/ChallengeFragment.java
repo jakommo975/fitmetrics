@@ -212,7 +212,10 @@ public class ChallengeFragment extends Fragment {
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, tenAM.getTimeInMillis(), pendingIntent);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, sixPM.getTimeInMillis(), pendingIntent);
 
+
+
         // set notification 10s from now for testing
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pendingIntent);
+        Calendar now = Calendar.getInstance();
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, now.getTimeInMillis() + 10000, pendingIntent);
     }
 }
